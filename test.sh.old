@@ -1,0 +1,21 @@
+BRANCH_NAME="main" && if [[ "$BRANCH_NAME" == "develop" ]] ; then DEPLOY_NAME=prod ;  elif [[ "$BRANCH_NAME" == "main" ]]; then DEPLOY_NAME=prod ; fi
+#  export Z_TEST_TEST=prod
+echo $DEPLOY_NAME
+
+
+
+
+# steps:
+#   # Build the container image
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['build', '-t', 'gcr.io/formationgcp/add-service', '.']
+#      entrypoint: bash
+#     args:
+#       - if [[ "$BRANCH_NAME" == "develop" ]] ; then DEPLOY_NAME=dev ;  elif [[ "$BRANCH_NAME" == "main" ]]; then DEPLOY_NAME=prod ; fi
+#       - docker build -t gcr.io/formationgcp/${DEPLOY_NAME}/add-service .
+#       - docker push gcr.io/formationgcp/add-service
+#   # Push the container image to Container Registry
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: []
+# images:
+#   - gcr.io/formationgcp/add-service
